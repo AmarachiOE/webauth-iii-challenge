@@ -5,11 +5,12 @@ const usersRouter = require("express").Router();
 const usersDb = require("./users-model");
 
 // Middleware
-const restricted = require("../auth/restricted-middleware");
+const restricted = require("../auth/restricted-middleware.js");
+const checkDep = require("../auth/checkDep-middleware.js");
 
 // ========  For endpoints beginning with /api/users
 
-usersRouter.get("/", restricted, (req, res) => {
+usersRouter.get("/", restricted, checkDep('web'), (req, res) => {
   usersDb
     .find()
     .then(users => {
