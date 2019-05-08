@@ -9,11 +9,11 @@ const restricted = require("../auth/restricted-middleware");
 
 // ========  For endpoints beginning with /api/users
 
-usersRouter.get("/", (req, res) => {
+usersRouter.get("/", restricted, (req, res) => {
   usersDb
     .find()
     .then(users => {
-      res.status(200).json(users);
+      res.status(200).json({ users, decodedToken: req.decodedToken });
     })
     .catch(err => {
       res
