@@ -4,7 +4,8 @@ module.exports = {
   add,
   find,
   findBy,
-  findById
+  findById,
+  findDep
 };
 
 function find() {
@@ -28,3 +29,9 @@ function findById(id) {
     .where({ id: Number(id) })
     .first();
 }
+
+// STRETCH: check Department
+function findDep(department) {
+    return db("users").where({department});
+  }
+

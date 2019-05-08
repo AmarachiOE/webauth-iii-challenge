@@ -10,7 +10,7 @@ const checkDep = require("../auth/checkDep-middleware.js");
 
 // ========  For endpoints beginning with /api/users
 
-usersRouter.get("/", restricted, checkDep('web'), (req, res) => {
+usersRouter.get("/", restricted, (req, res) => {
   usersDb
     .find()
     .then(users => {
@@ -20,6 +20,29 @@ usersRouter.get("/", restricted, checkDep('web'), (req, res) => {
       res
         .status(500)
         .json({ error: "The users information could not be retrieved." });
+    });
+});
+
+// attempted stretch
+
+usersRouter.get("/:department", restricted, checkDep, (req, res) => {
+  const dep = req.params.department;
+  console.log(dep);
+  usersDb
+    .findDep(dep)
+    .then(users => {
+      if (users) {
+        res.status(200).json(users);
+      } else {
+        res
+          .status(404)
+          .json({ error: "There is no department with this name." });
+      }
+    })
+    .catch(err => {
+      res.status(500).json({
+        error: "This department's information could not be retrieved."
+      });
     });
 });
 
