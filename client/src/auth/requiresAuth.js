@@ -23,10 +23,9 @@ export default function(Component) {
     render() {
       const token = localStorage.getItem("jwt");
       const notAllowed = <h3>Please Register or Login to See Users</h3>;
-      return (
-        // conditional render
-        <div>{token ? <Component {...this.props} /> : notAllowed}</div>
-      );
+
+      // conditional render
+      return <div> {token ? <Component {...this.props} /> : notAllowed} </div>;
     }
   };
 }
