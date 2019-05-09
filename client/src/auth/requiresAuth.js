@@ -20,22 +20,21 @@ axios.interceptors.request.use(
 
 export default function(Component) {
   return class Authenticated extends React.Component {
-
     signup = e => {
-        this.props.history.push("/signup");
-      }
+      this.props.history.push("/signup");
+    };
 
     signin = e => {
-    this.props.history.push("/signin");
-    }
+      this.props.history.push("/signin");
+    };
     render() {
       const token = localStorage.getItem("jwt");
       const notAllowed = (
-      <div>
+        <div>
           <h3>Please Sign Up or Sign In to See Users</h3>
           <button onClick={this.signup}>Sign Up</button>
           <button onClick={this.signin}>Sign In</button>
-      </div>
+        </div>
       );
 
       // conditional render

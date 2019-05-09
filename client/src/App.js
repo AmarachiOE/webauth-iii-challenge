@@ -10,7 +10,7 @@ import "./App.css";
 
 function App(props) {
   function logout() {
-    localStorage.removeItem('jwt');
+    localStorage.removeItem("jwt");
     props.history.push("/signin");
   }
 
@@ -27,7 +27,7 @@ function App(props) {
       </header>
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
-      <Route path="/users" component={Users}/>
+      <Route path="/users" component={Users} />
     </div>
   );
 }

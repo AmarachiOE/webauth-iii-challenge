@@ -20,7 +20,7 @@ class SignUp extends React.Component {
     axios
       .post(endpoint, this.state)
       .then(res => {
-          localStorage.setItem('jwt', res.data.token);
+        localStorage.setItem("jwt", res.data.token);
         this.props.history.push("/users");
       })
       .catch(err => {
