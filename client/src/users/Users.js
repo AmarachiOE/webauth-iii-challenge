@@ -9,6 +9,9 @@ class Users extends React.Component {
     }
 
     componentDidMount() {
+        const endpoint = "http://localhost:5000/api/users";
+
+        axios.get(endpoint).then().catch();
 
     }
 
