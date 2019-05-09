@@ -20,7 +20,7 @@ class SignIn extends React.Component {
           localStorage.setItem('jwt', res.data.token);
           this.props.history.push("/users"); // make sure App exported withRouter
       }).catch(err => {
-          console.error('Login Error', err);
+          console.error('Sign In Error', err);
       });
 
   }

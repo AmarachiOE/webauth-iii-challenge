@@ -11,7 +11,7 @@ import "./App.css";
 function App(props) {
   function logout() {
     localStorage.removeItem('jwt');
-    props.history.push("/login");
+    props.history.push("/signin");
   }
 
   return (
