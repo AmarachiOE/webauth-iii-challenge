@@ -13,7 +13,7 @@ function find() {
 }
 
 function findBy(filter) {
-  return db("users").where(filter);
+  return db("users").where(filter); // .first() on login route
 }
 
 // for register
@@ -23,7 +23,6 @@ async function add(user) {
   return findById(id);
 }
 
-// for login
 function findById(id) {
   return db("users")
     .where({ id: Number(id) })

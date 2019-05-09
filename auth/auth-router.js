@@ -21,7 +21,7 @@ authRouter.post("/register", (req, res) => {
     });
   } else {
     // hash the password
-    const hash = bcrypt.hashSync(user.password, 10); // 2^n rounds
+    const hash = bcrypt.hashSync(user.password, 10); // 2^n rounds = salt
     user.password = hash;
 
     usersDb
