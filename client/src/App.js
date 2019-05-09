@@ -23,7 +23,7 @@ function App(props) {
         &nbsp;|&nbsp;
         <NavLink to="/users">Users</NavLink>
         &nbsp;|&nbsp;
-        <button onClick={logout}>Log Out</button>
+        <button onClick={logout}>Sign Out</button>
       </header>
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
