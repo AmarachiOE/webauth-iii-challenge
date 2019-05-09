@@ -2,7 +2,9 @@ import React from "react";
 import axios from "axios";
 
 class SignUp extends React.Component {
-  state = {};
+  state = {
+
+  };
 
   render() {
     return (

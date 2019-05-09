@@ -8,7 +8,12 @@ import SignIn from "./auth/SignIn";
 import Users from "./users/Users";
 import "./App.css";
 
-function App() {
+function App(props) {
+  function logout() {
+    localStorage.removeItem('jwt');
+    props.history.push("/login");
+  }
+
   return (
     <div className="App">
       <header>
@@ -18,7 +23,7 @@ function App() {
         &nbsp;|&nbsp;
         <NavLink to="/users">Users</NavLink>
         &nbsp;|&nbsp;
-        <button>Log Out</button>
+        <button onClick={logout}>Log Out</button>
       </header>
       <Route path="/signup" component={SignUp} />
       <Route path="/signin" component={SignIn} />
