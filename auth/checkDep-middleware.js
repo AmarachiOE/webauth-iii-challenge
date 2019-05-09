@@ -2,6 +2,7 @@
 
 // STRETCH
 
+
 function checkDep(req, res, next) {
   if (
     req.decodedToken && // decodedToken present?

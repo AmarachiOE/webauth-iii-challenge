@@ -31,7 +31,7 @@ export default function(Component) {
       const token = localStorage.getItem("jwt");
       const notAllowed = (
         <div>
-          <h3>Please Sign Up or Sign In to See Users</h3>
+          <h2>Please Sign Up or Sign In to See Users</h2>
           <button onClick={this.signup}>Sign Up</button>
           <button onClick={this.signin}>Sign In</button>
         </div>

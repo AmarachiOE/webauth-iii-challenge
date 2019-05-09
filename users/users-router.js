@@ -7,8 +7,10 @@ const usersDb = require("./users-model");
 // Middleware
 const restricted = require("../auth/restricted-middleware.js");
 const checkDep = require("../auth/checkDep-middleware.js");
+const checkAdmin = require("../auth/checkAdmin-middleware.js");
 
 // ========  For endpoints beginning with /api/users
+
 
 usersRouter.get("/", restricted, (req, res) => {
   usersDb
@@ -22,6 +24,21 @@ usersRouter.get("/", restricted, (req, res) => {
         .json({ error: "The users information could not be retrieved." });
     });
 });
+
+
+
+
+// attempted stretch
+/*
+usersRouter.get("/", restricted, checkAdmin('admin'), async (req, res) => {
+  try {
+    const users = await usersDb;
+    res.status(200).json(users)
+  } catch (err) {
+    res.status(500).json({  err });
+  }
+});
+*/
 
 // attempted stretch
 

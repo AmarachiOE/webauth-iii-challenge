@@ -24,11 +24,13 @@ class Users extends React.Component {
     return (
       <div>
         <h2>List of Users</h2>
-        <div>
+        <div className="users-container">
           {this.state.users.map(user => (
-            <p key={user.id}>
-              {user.username}, {user.department}
-            </p>
+            <div className="each-user-div">
+                <p key={user.id}>
+                  {user.username}, {user.department}
+                </p>
+            </div>
           ))}
         </div>
       </div>
